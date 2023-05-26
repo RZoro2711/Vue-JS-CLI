@@ -1,8 +1,7 @@
 <template>
   <div class="backdrop" @click.self="showModal">
     <div class="modal" :class='{ success: theme == "success", danger: theme == "delete" }'>
-      <h2>{{ header }}</h2>
-      <p>{{ body }}</p>
+      <slot>Default</slot>
     </div>
   </div>
 </template>

@@ -2,7 +2,10 @@
   <span>
     <p>Hello Vue JS</p>
     <div v-if="showModal">
-      <Modal :header="header" :body="body" :theme="theme" @close="showModal = false"></Modal>
+      <Modal :theme="theme" @close="showModal = false">
+        <h2>{{ header }}</h2>
+        <p>{{ body }}</p>
+      </Modal>
     </div>
     <button @click="showModal = true">Show Modal</button>
   </span>
