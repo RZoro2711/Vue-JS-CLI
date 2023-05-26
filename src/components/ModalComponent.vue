@@ -1,18 +1,19 @@
 <template>
   <div class="backdrop">
-    <div class="modal">
-        <p>Modal Component</p>
+    <div class="modal" :class='{success:theme=="success",danger:theme=="delete"}'>
+        <h2>{{ header }}</h2>
+        <p>{{ body }}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-
+props : ['header', 'body', "theme"]
 }
 </script>
 
-<style>
+<style scoped>
     .backdrop{
         width: 100%;
         height: 100%;
@@ -22,12 +23,22 @@ export default {
         background: rgba(0, 0, 0, 0.5);
     }
     .modal{
-        width: 200px;
-        height: 100px;
+        width: 400px;
+        height: 50px;
         margin: 100px auto;
         background: white;
         border-radius: 10px;
-        padding: 100px;
-        text-align: center;
+        padding: 50px;
+    }
+    h2{
+      margin-bottom: 10px;
+    }
+    .success{
+      background: green;
+      color: white;
+    }
+    .danger{
+      background: red;
+      color: white;
     }
 </style>
