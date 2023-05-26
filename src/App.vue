@@ -1,6 +1,11 @@
 <template>
-  <p>Hello Vue JS</p>
-  <Modal :header="header" :body="body" :theme="theme"></Modal>
+  <span>
+    <p>Hello Vue JS</p>
+    <div v-if="showModal">
+      <Modal :header="header" :body="body" :theme="theme" @close="showModal = false"></Modal>
+    </div>
+    <button @click="showModal = true">Show Modal</button>
+  </span>
 </template>
 
 <script>
@@ -11,6 +16,7 @@ export default {
       header: "Login Success",
       body: "Welcom Back!",
       theme: "success",
+      showModal: false,
     }
   },
   components: { Modal }
