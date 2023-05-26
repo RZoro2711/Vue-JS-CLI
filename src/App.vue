@@ -8,6 +8,13 @@
       </Modal>
     </div>
     <button @click="showModal = true">Show Modal</button>
+    <div v-if="showModalTwo">
+      <Modal :theme="theme" @close="showModalTwo = false">
+        <h2>{{ del_header }}</h2>
+        <p>{{ del_body }}</p>
+      </Modal>
+    </div>
+    <button @click="showModalTwo = true">Log out Modal</button>
   </span>
 </template>
 
@@ -18,8 +25,11 @@ export default {
     return {
       header: "Login Success",
       body: "Welcom Back!",
+      del_header : "Wanna Delete",
+      del_body : "Successful",
       theme: "success",
       showModal: false,
+      showModalTwo: false,
     }
   },
   components: { Modal }
